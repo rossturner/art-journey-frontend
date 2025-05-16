@@ -30,7 +30,9 @@ jobs:
           port: 22
           user: ${{ secrets.SFTP_USER }}
           pass: ${{ secrets.SFTP_PASS }}
-          local_dir: './dist'                 # or 'build' if that’s your output
-          remote_dir: '/main/'                     # deploy to web root
-          exclude: |
-            **/workspace/**                     # keep your /workspace intact
+          onlyNewer: true
+          settings: 'sftp:auto-confirm=yes'
+          localDir: './dist'                 # or 'build' if that’s your output
+          remoteDir: '/main/'                     # deploy to web root
+          reverse: true
+          ignoreFile: '.lftpignore'
