@@ -1,0 +1,37 @@
+[
+  {
+    "year": 2025,
+    "month": 5,
+    "projects": [
+      {
+        "title": "roses-study 12",
+        "day": 12,
+        "thumbnail": "2025 05/roses-study 12/final.png",
+        "final": [
+          "2025 05/roses-study 12/final.png"
+        ],
+        "wip": [
+          "2025 05/roses-study 12/wip1.png",
+          "2025 05/roses-study 12/wip2.png"
+        ],
+        "clip": [
+          "2025 05/roses-study 12/roses.clip"
+        ],
+        "timelapse": "2025 05/roses-study 12/roses-timelapse.mp4"
+      },
+      {
+        "title": "speed-sketch",
+        "day": 1,
+        "thumbnail": "2025 05/speed-sketch/wip3.png",
+        "final": [],
+        "wip": [
+          "2025 05/speed-sketch/wip1.png",
+          "2025 05/speed-sketch/wip2.png",
+          "2025 05/speed-sketch/wip3.png"
+        ],
+        "clip": [],
+        "timelapse": null
+      }
+    ]
+  }
+]
