@@ -1,0 +1,35 @@
+name: Deploy React App
+
+on:
+  push:
+    branches: [ main ]       # Trigger on pushes to main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3      # Get repo contents :contentReference[oaicite:11]{index=11}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'           # Match your local version :contentReference[oaicite:12]{index=12}
+
+      - name: Install dependencies
+        run: npm ci                    # Clean install :contentReference[oaicite:13]{index=13}
+
+      - name: Build
+        run: npm run build             # Produces dist/ or build/ :contentReference[oaicite:14]{index=14}
+
+      - name: Deploy to SFTP host
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server:   ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          local-dir:  build            # or dist, adjust as needed
+          server-dir: /main/                # root of your static site
+          exclude: |
+            **/workspace/**           # skip your workspace files :contentReference[oaicite:15]{index=15}
