@@ -1,12 +1,12 @@
+import {Anchor, Center, Group, Image, Loader, Stack, Text, Title,} from '@mantine/core';
 import {Link, useParams} from 'react-router-dom';
-import {Anchor, Center, Group, Image, Loader, Stack, Text, Title} from '@mantine/core';
 import useWorkspace from '../hooks/useWorkspace';
 
 export default function Project() {
     const { year, month, slug } = useParams();
-    const workspace = useWorkspace();       // shared cache thanks to the hook
+    const blocks = useWorkspace();
 
-    if (!workspace) {
+    if (!blocks) {
         return (
             <Center h="100vh">
                 <Loader size="lg" />
@@ -14,33 +14,29 @@ export default function Project() {
         );
     }
 
-    // locate the current project
     const monthInt = parseInt(month, 10);
-    const monthBlock = workspace.find(
-        (m) => String(m.year) === year && m.month === monthInt
+    const block = blocks.find(
+        (m) => m.year === parseInt(year, 10) && m.month === monthInt
     );
-    const project = monthBlock?.projects.find((p) => p.title === slug);
+    const project = block?.projects.find((p) => p.slug === slug);
 
     if (!project) {
-        return <Text>Nothing here…</Text>;
+        return <Text align="center">Nothing here…</Text>;
     }
 
     return (
-        <Stack spacing="xl">
+        <Stack spacing="xl" px="md" py="lg">
             <Title order={2}>{project.title}</Title>
 
-            {/* final images first */}
-            {project.final?.map((f) => (
+            {project.final.map((f) => (
                 <Image key={f} src={`/workspace/${f}`} alt={project.title} radius="md" />
             ))}
 
-            {/* then WIP images */}
-            {project.wip?.map((w) => (
+            {project.wip.map((w) => (
                 <Image key={w} src={`/workspace/${w}`} alt={project.title} radius="md" />
             ))}
 
-            {/* .clip files, if any */}
-            {project.clip?.length > 0 && (
+            {project.clip.length > 0 && (
                 <Group>
                     {project.clip.map((c) => (
                         <Anchor key={c} href={`/workspace/${c}`} download>
@@ -50,7 +46,6 @@ export default function Project() {
                 </Group>
             )}
 
-            {/* timelapse video */}
             {project.timelapse && (
                 <video controls src={`/workspace/${project.timelapse}`} style={{ width: '100%' }} />
             )}
