@@ -1,35 +1,36 @@
+# .github/workflows/deploy.yml
 name: Deploy React App
 
 on:
   push:
-    branches: [ master ]       # Trigger on pushes to master
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3      # Get repo contents :contentReference[oaicite:11]{index=11}
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'           # Match your local version :contentReference[oaicite:12]{index=12}
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci                    # Clean install :contentReference[oaicite:13]{index=13}
+      - name: Install & build
+        run: |
+          npm ci
+          npm run build
 
-      - name: Build
-        run: npm run build             # Produces dist/ or build/ :contentReference[oaicite:14]{index=14}
-
-      - name: Deploy to SFTP host
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Deploy via LFTP (SFTP)
+        uses: pressidium/lftp-mirror-action@v1
         with:
-          server:   ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
-          local-dir:  build            # or dist, adjust as needed
-          server-dir: /main/                # root of your static site
+          host: ${{ secrets.SFTP_HOST }}
+          port: 22
+          user: ${{ secrets.SFTP_USER }}
+          pass: ${{ secrets.SFTP_PASS }}
+          local_dir: './dist'                 # or 'build' if that’s your output
+          remote_dir: '/main/'                     # deploy to web root
           exclude: |
-            **/workspace/**           # skip your workspace files :contentReference[oaicite:15]{index=15}
+            **/workspace/**                     # keep your /workspace intact
