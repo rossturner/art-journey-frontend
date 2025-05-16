@@ -32,7 +32,7 @@ jobs:
           pass: ${{ secrets.SFTP_PASS }}
           onlyNewer: true
           settings: 'sftp:auto-confirm=yes'
-          localDir: './dist'                 # or 'build' if that’s your output
-          remoteDir: '/main/'                     # deploy to web root
+          localDir: 'dist/'
+          remoteDir: '/main'
           reverse: true
           ignoreFile: '.lftpignore'
