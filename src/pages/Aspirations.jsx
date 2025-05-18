@@ -24,7 +24,7 @@ function Aspirations() {
 
                 <Group spacing="md" mb="sm" wrap="nowrap" grow>
                     <LinkedImage src="/static/aspirations/rimuu-school.png" alt="Rimuu OC" />
-                    <LinkedImage src="/static/aspirations/rimuu-marin.png" alt="Marin Kitagawa by Rimuu" />
+                    <LinkedImage src="/static/aspirations/rimuu-ai.jpg" alt="Marin Kitagawa by Rimuu" />
                     <LinkedImage src="/static/aspirations/rimuu-nicole.png" alt="Nicole Demara by Rimuu" />
                     <LinkedImage src="/static/aspirations/rimuu-ellen.png" alt="Ellen Joe by Rimuu" />
                 </Group>
@@ -38,17 +38,17 @@ function Aspirations() {
                     I love how she colours hair with subtle strands of darker and lighter shades, and I think she makes
                     fantastic use of subtle reflected light and sub-surface scattering:<br />
                     – See the blue/purple reflections on the right of the 1st image in the hair, shirt and skirt<br />
-                    – The skintone used in the hair around the face on the 4th pic, also the reflected blue light coming
-                    from the right side of that image<br />
+                    – The skintone scattering into the hair around the face, more obvious on the pieces with darker hair<br />
                     <br />
-                    All of the above have the main light source from the upper-left and I especially like how this
-                    applies to the first two images, including how it “removes”/recolours the line-art there which is
+                    I especially like how the lighting applies to the hair in the first image- how it
+                    “removes”/recolours the line-art there which is
                     otherwise present on the rest of the illustration.<br />
                     All of these have the character almost fill the frame but I really like what is done with the
-                    backgrounds to pull focus to the character while also informing the scene.<br />
+                    backgrounds to pull focus to the character while also informing the scene, especially the
+                    use of depth-of-field in the first 3.<br />
                     <br />
                     Rimuu is probably the best all-round example of the kind of artist I'd like to be, though the style
-                    of her work is a little more cutesy than I would probably produce myself.
+                    of her other work is often more cutesy than I would probably produce myself.
                 </Text>
             </section>
 
@@ -81,7 +81,7 @@ function Aspirations() {
                     <br />
                     I still can't explain what draws me to this work so much but one thing that does stand out is the
                     way Saiivia draws her eyes. Maybe something to do with the pupil being hinted at rather than boldly
-                    different to the colouring of the iris?<br />
+                    different to the colouring of the iris? Maybe its the lack of weight in the lineart?<br />
                     <br />
                     Other than that, I notice Saiivia often makes great use of midtones between lit and shaded areas —
                     most evident on Astra's leg in the final image or Anby's shoulder in the 1st image.
@@ -143,7 +143,7 @@ function Aspirations() {
 
             {/* Kachoufuugetu4 */}
             <section>
-                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉　稔</Title>
+                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉 稔</Title>
                 <Group spacing="xs" mb="sm">
                     <SocialIconLink href="https://bsky.app/profile/kachoufuugetu4.bsky.social" />
                     <SocialIconLink href="https://x.com/kachoufuugetu4" />
