@@ -1,24 +1,33 @@
-import {Container, Text} from '@mantine/core';
+import {Box, Container, Stack, Text, Title} from '@mantine/core';
 import ProjectGallery from '../components/ProjectGallery';
 
 export default function Home() {
     return (
         <>
-            {/* Intro / hero section */}
-            <Container size="md" py="xl">
-                <Text component="h1" fw={700} size="2rem" mb="sm">
-                    Welcome to Ziedritz.art!
-                </Text>
-                <Text size="lg">
-                    This site is my ongoing journal of studies, sketches and finished illustrations, tracking
-                    my progress from absolute beginner when I started in September 2024 to now.
-                </Text>
-                <Text size="lg">
-                    Click any thumbnail to dive into process shots, notes and timelapses.
-                </Text>
-            </Container>
+            {/* Intro */}
+            <Box component="section" py="lg">
+                <Container size="lg">
+                    <Stack spacing="sm" align="center">
+                        <Title order={1} size={34} ta="center">
+                            Welcome to Ziedritz.art!
+                        </Title>
 
-            <ProjectGallery />
+                        <Text size="lg" ta="center" maw={700}>
+                            This site is my journal of studies, sketches and finished illustrations,
+                            charting progress from absolute beginner (Sept 2024) to today.
+                        </Text>
+
+                        <Text size="lg" ta="center" maw={700}>
+                            Click any thumbnail to dive into process shots, notes and timelapses.
+                        </Text>
+                    </Stack>
+                </Container>
+            </Box>
+
+            {/* Gallery */}
+            <Box component="section" mt="xl">
+                <ProjectGallery />
+            </Box>
         </>
     );
 }
