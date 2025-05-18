@@ -1,7 +1,7 @@
-import {Anchor, Blockquote, Container, Divider, Group, Text, Title} from '@mantine/core';
+import {Anchor, Blockquote, Container, Divider, Group, SimpleGrid, Text, Title,} from '@mantine/core';
+import {Link} from 'react-router-dom';
 import SocialIconLink from '../components/SocialIconLink.jsx';
 import LinkedImage from '../components/LinkedImage.jsx';
-import {Link} from "react-router-dom";
 
 function Aspirations() {
     return (
@@ -22,12 +22,16 @@ function Aspirations() {
                     <SocialIconLink href="https://www.patreon.com/rimuu" />
                 </Group>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/rimuu-school.png" alt="Rimuu OC" />
-                    <LinkedImage src="/static/aspirations/rimuu-ai.jpg" alt="Marin Kitagawa by Rimuu" />
+                    <LinkedImage src="/static/aspirations/rimuu-ai.jpg" alt="Ai Hoshino by Rimuu" />
                     <LinkedImage src="/static/aspirations/rimuu-nicole.png" alt="Nicole Demara by Rimuu" />
                     <LinkedImage src="/static/aspirations/rimuu-ellen.png" alt="Ellen Joe by Rimuu" />
-                </Group>
+                </SimpleGrid>
 
                 <Text>
                     I think what initially got me to focus on Rimuu's work is simply that her OC has pink hair,
@@ -64,16 +68,26 @@ function Aspirations() {
                     <SocialIconLink href="https://www.youtube.com/@Saiivia/" />
                 </Group>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                {/* first row (3 images max) */}
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/saiivia-anby.jpg" alt="Anby Demara by Saiivia" />
                     <LinkedImage src="/static/aspirations/saiivia-jane.jpg" alt="Jane Doe by Saiivia" />
                     <LinkedImage src="/static/aspirations/saiivia-driving-thunder.jpg" alt="Driving Thunder by Saiivia" />
-                </Group>
+                </SimpleGrid>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                {/* second row (2 images max) */}
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/saiivia-carlotta.jpg" alt="Carlotta by Saiivia" />
                     <LinkedImage src="/static/aspirations/saiivia-astra.jpg" alt="Astra by Saiivia" />
-                </Group>
+                </SimpleGrid>
 
                 <Text>
                     I fell in love with Saiivia's work upon seeing this 1st image (Anby from ZZZ) because I've simply
@@ -99,12 +113,16 @@ function Aspirations() {
                     <SocialIconLink href="https://www.pixiv.net/en/users/13502343/artworks" />
                 </Group>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/resu-kiara-sweat.jpg" />
                     <LinkedImage src="/static/aspirations/resu-kiara-2.jpg" />
                     <LinkedImage src="/static/aspirations/resu-kiara-3.jpg" />
                     <LinkedImage src="/static/aspirations/resu-mumei.jpg" />
-                </Group>
+                </SimpleGrid>
 
                 <Text>
                     Resu is one of those artists seemingly obsessed with producing fanart of a single character (I respect that!),
@@ -150,12 +168,16 @@ function Aspirations() {
                     <SocialIconLink href="https://www.pixiv.net/en/users/1809221" />
                 </Group>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/kachou1.jpg" />
                     <LinkedImage src="/static/aspirations/kachou2.jpg" />
                     <LinkedImage src="/static/aspirations/kachou3.jpg" />
                     <LinkedImage src="/static/aspirations/kachou4.jpg" />
-                </Group>
+                </SimpleGrid>
 
                 <Text>This is a very NSFW manga artist and most of his coloured work appears to be skeb commissions.
                     Looking at these you're probably seeing a theme of obvious things (or pairs of obvious things)
@@ -176,12 +198,16 @@ function Aspirations() {
                     <SocialIconLink href="https://www.patreon.com/feint721" />
                 </Group>
 
-                <Group spacing="md" mb="sm" wrap="nowrap" grow>
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
                     <LinkedImage src="/static/aspirations/feint1.jpg" />
                     <LinkedImage src="/static/aspirations/feint2.jpg" />
                     <LinkedImage src="/static/aspirations/feint3.jpg" />
                     <LinkedImage src="/static/aspirations/feint4.jpg" />
-                </Group>
+                </SimpleGrid>
 
                 <Text>Similarly to Resu mostly focusing on one character, Feint takes that even further as his profile
                 text informs you with "99.1% Stelle" (Stelle being the grey-haired, yellow-eyed female player
