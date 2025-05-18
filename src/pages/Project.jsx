@@ -45,6 +45,7 @@ export default function Project() {
             <Stack spacing="xl">
                 <Title order={2}>{project.title}</Title>
 
+                {/* main / final image */}
                 <Anchor
                     href={`/workspace/${hero}`}
                     target="_blank"
@@ -53,6 +54,7 @@ export default function Project() {
                     <Image src={`/workspace/${hero}`} alt={project.title} radius="md" />
                 </Anchor>
 
+                {/* notes */}
                 {project.notes && (
                     <Paper withBorder p="md" radius="md">
                         {project.notes.split(/\r?\n/).map((line, idx) => (
@@ -63,6 +65,7 @@ export default function Project() {
                     </Paper>
                 )}
 
+                {/* additional finals */}
                 {otherFinals.length > 0 && (
                     <>
                         <Title order={4}>Final variations</Title>
@@ -81,6 +84,7 @@ export default function Project() {
                     </>
                 )}
 
+                {/* wip grid */}
                 {project.wip.length > 0 && (
                     <>
                         <Title order={4}>Work-in-progress</Title>
@@ -99,6 +103,7 @@ export default function Project() {
                     </>
                 )}
 
+                {/* timelapse */}
                 {project.timelapse && (
                     <>
                         <Title order={4}>Timelapse</Title>
@@ -112,6 +117,26 @@ export default function Project() {
                     </>
                 )}
 
+                {/* reference images */}
+                {project.reference && project.reference.length > 0 && (
+                    <>
+                        <Title order={4}>References</Title>
+                        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
+                            {project.reference.map((r) => (
+                                <Anchor
+                                    key={r}
+                                    href={`/workspace/${r}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Image src={`/workspace/${r}`} alt={project.title} />
+                                </Anchor>
+                            ))}
+                        </SimpleGrid>
+                    </>
+                )}
+
+                {/* clip downloads */}
                 {project.clip.length > 0 && (
                     <>
                         <Divider />
@@ -125,6 +150,7 @@ export default function Project() {
                     </>
                 )}
 
+                {/* back link */}
                 <Anchor component={Link} to="/">
                     ← Back to all work
                 </Anchor>
