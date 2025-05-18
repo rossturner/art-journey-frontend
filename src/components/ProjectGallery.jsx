@@ -1,9 +1,23 @@
-import {Card, CardSection, Center, Container, Image, Loader, SimpleGrid, Text, Title,} from '@mantine/core';
+import {
+    Card,
+    CardSection,
+    Center,
+    Container,
+    Image,
+    Loader,
+    SegmentedControl,
+    SimpleGrid,
+    Stack,
+    Text,
+    Title,
+} from '@mantine/core';
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import useWorkspace from '../hooks/useWorkspace';
 
 export default function ProjectGallery() {
     const blocks = useWorkspace();
+    const [order, setOrder] = useState('newest');
 
     if (!blocks) {
         return (
@@ -13,13 +27,33 @@ export default function ProjectGallery() {
         );
     }
 
+    // decide display order
+    const viewBlocks =
+        order === 'newest' ? blocks : [...blocks].reverse();
+
     return (
         <Container size="lg" py="xl">
-            {blocks.map(({ year, month, projects }) => {
+            {/* toggle */}
+            <SegmentedControl
+                value={order}
+                onChange={(v) => setOrder(v)}
+                data={[
+                    { label: 'Newest first', value: 'newest' },
+                    { label: 'Oldest first', value: 'oldest' },
+                ]}
+                size="sm"
+                mb="lg"
+            />
+
+            {viewBlocks.map(({ year, month, projects }) => {
                 const monthLabel = new Date(year, month - 1, 1).toLocaleString(
                     undefined,
                     { month: 'long', year: 'numeric' }
                 );
+
+                // inside a month, flip project order when showing oldest first
+                const viewProjects =
+                    order === 'newest' ? projects : [...projects].reverse();
 
                 return (
                     <section key={`${year}-${month}`} style={{ marginBottom: '2rem' }}>
@@ -28,8 +62,11 @@ export default function ProjectGallery() {
                         </Title>
 
                         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
-                            {projects.map((p) => {
-                                const route = `/${year}/${String(month).padStart(2, '0')}/${p.slug}`;
+                            {viewProjects.map((p) => {
+                                const route = `/${year}/${String(month).padStart(
+                                    2,
+                                    '0'
+                                )}/${p.slug}`;
 
                                 return (
                                     <Card
@@ -46,12 +83,12 @@ export default function ProjectGallery() {
                                             />
                                         </CardSection>
 
-                                        <Text mt="sm" fw={500}>
-                                            {p.title}
-                                        </Text>
-                                        <Text size="xs" c="dimmed">
-                                            {p.dateLabel}
-                                        </Text>
+                                        <Stack spacing={4} mt="sm">
+                                            <Text fw={500}>{p.title}</Text>
+                                            <Text size="xs" c="dimmed">
+                                                {p.dateLabel}
+                                            </Text>
+                                        </Stack>
                                     </Card>
                                 );
                             })}
