@@ -15,7 +15,7 @@ function Aspirations() {
             <section>
                 <Title order={2} mb="sm">Rimuu</Title>
                 <Group spacing="xs" mb="sm">
-                    <SocialIconLink href="https://www.rimuu.com/socials" />
+                    <SocialIconLink href="https://www.rimuu.com" />
                     <SocialIconLink href="https://bsky.app/profile/rimuurin.bsky.social" />
                     <SocialIconLink href="https://x.com/rimuurin" />
                     <SocialIconLink href="https://www.pixiv.net/en/users/17317073" />
