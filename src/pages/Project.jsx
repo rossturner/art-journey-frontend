@@ -152,7 +152,7 @@ export default function Project() {
 
                 {/* back link */}
                 <Anchor component={Link} to="/">
-                    ← Back to all work
+                    ← Back to gallery
                 </Anchor>
             </Stack>
         </Container>
