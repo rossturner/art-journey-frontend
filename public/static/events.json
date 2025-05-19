@@ -5,7 +5,7 @@
     "startDay": "01",
     "endDay": null,
     "rules": "Fixed annual January 1.",
-    "summary": "Artists post New-year greeting art, often characters in kimono and the year’s zodiac animal :contentReference[oaicite:0]{index=0}",
+    "summary": "Artists post New-year greeting art, often characters in kimono and the year’s zodiac animal.",
     "dateReason": "First day of the calendar year; traditional Japanese Oshōgatsu celebrations.",
     "jpHashtag": "#あけおめ",
     "enHashtag": "#NewYearsDay"
@@ -16,7 +16,7 @@
     "startDay": "02",
     "endDay": null,
     "rules": "Fixed annual February 2.",
-    "summary": "Illustrations featuring the twin-ponytail hairstyle dominate timelines :contentReference[oaicite:1]{index=1}",
+    "summary": "Illustrations featuring the twin-ponytail hairstyle dominate timelines.",
     "dateReason": "2 / 2 visually resembles two tails and is a pun on \"twin\" in Japanese goro-awase.",
     "jpHashtag": "#ツインテールの日",
     "enHashtag": "#TwintailDay"
@@ -27,7 +27,7 @@
     "startDay": "06",
     "endDay": null,
     "rules": "Fixed annual February 6.",
-    "summary": "Bath-scene or on-sen themed illustrations trend across JP Twitter/Pixiv :contentReference[oaicite:2]{index=2}",
+    "summary": "Bath-scene or on-sen themed illustrations trend across JP Twitter/Pixiv.",
     "dateReason": "2 (ふ) 6 (ろ) reads “furo” (bath) in Japanese word-play.",
     "jpHashtag": "#お風呂の日",
     "enHashtag": null
@@ -93,7 +93,7 @@
     "startDay": "08",
     "endDay": null,
     "rules": "Fixed annual March 8 worldwide.",
-    "summary": "Empowerment graphics, tributes to female characters and creators :contentReference[oaicite:3]{index=3}",
+    "summary": "Empowerment graphics, tributes to female characters and creators.",
     "dateReason": "UN-recognized day celebrating women’s achievements.",
     "jpHashtag": "#国際女性デー",
     "enHashtag": "#InternationalWomensDay"
@@ -148,7 +148,7 @@
     "startDay": "26",
     "endDay": null,
     "rules": "Fixed annual April 26.",
-    "summary": "Cosy bath/onsen art—often steamy pin-ups—trends on the tag :contentReference[oaicite:4]{index=4}",
+    "summary": "Cosy bath/onsen art—often steamy pin-ups—trends on the tag.",
     "dateReason": "4-2-6 reads “yo-i-fu-ro” → ‘good bath’.",
     "jpHashtag": "#よい風呂の日",
     "enHashtag": "#GoodBathDay"
@@ -159,18 +159,18 @@
     "startDay": "05",
     "endDay": null,
     "rules": "Date follows Easter Sunday each year; next early-year slot is 5 Apr 2026 (20 Apr 2025).",
-    "summary": "Artists draw bunny-suit characters to match Western Easter bunny lore :contentReference[oaicite:5]{index=5}",
+    "summary": "Artists draw bunny-suit characters to match Easter bunny lore.",
     "dateReason": "Easter = first Sunday after the Paschal full moon; date moves within March–April.",
     "jpHashtag": "#イースターバニー",
     "enHashtag": "#EasterBunny"
   },
   {
-    "title": "Golden Bikini Week",
+    "title": "Golden (Bikini) Week",
     "month": "04",
     "startDay": "29",
     "endDay": "05",
     "rules": "Runs every year for the whole Golden Week holiday (29 Apr – 5 May).",
-    "summary": "Shiny gold-swimsuit fan-art parallels Japan’s “Golden Week” holiday vibe :contentReference[oaicite:6]{index=6}",
+    "summary": "Shiny gold-swimsuit fan-art parallels Japan’s “Golden Week” holiday.",
     "dateReason": "\"Golden\" week inspires the gold-bikini gimmick during the long spring break.",
     "jpHashtag": "#ゴールデンビキニ",
     "enHashtag": "#GoldenBikiniWeek"
@@ -181,7 +181,7 @@
     "startDay": "02",
     "endDay": null,
     "rules": "Falls on the 88th night after Risshun; 2026 date (non-leap) is 2 May.",
-    "summary": "Tea-themed art—fresh shincha leaves, teacups—fills feeds :contentReference[oaicite:7]{index=7}",
+    "summary": "Tea-themed art—fresh shincha leaves, teacups—fills feeds.",
     "dateReason": "The 88th night is considered the ideal tea-picking day in Japanese agriculture.",
     "jpHashtag": "#緑茶の日",
     "enHashtag": "#GreenTeaDay"
@@ -214,7 +214,7 @@
     "startDay": "19",
     "endDay": null,
     "rules": "Technically the 19th of every month; many artists highlight the spring 19 May slot.",
-    "summary": "Dessert-themed art—especially fluffy choux pastries—trends :contentReference[oaicite:8]{index=8}",
+    "summary": "Dessert-themed art—especially fluffy choux pastries—trends.",
     "dateReason": "Created by confectioner Monteur; 19 (iku) chosen as mnemonic.",
     "jpHashtag": "#シュークリームの日",
     "enHashtag": "#CreamPuffDay"
@@ -225,7 +225,7 @@
     "startDay": "29",
     "endDay": null,
     "rules": "Fixed annual May 29.",
-    "summary": "Feeds fill with elegant kimono fashion art and photo shoots :contentReference[oaicite:9]{index=9}",
+    "summary": "Feeds fill with elegant kimono fashion art and photo shoots.",
     "dateReason": "5-2-9 pun \"go-fu-ku\"—an old word for kimono fabric.",
     "jpHashtag": "#呉服の日",
     "enHashtag": "#KimonoDay"
@@ -280,7 +280,7 @@
     "startDay": "01",
     "endDay": null,
     "rules": "Fixed annual August 1.",
-    "summary": "BL/yaoi creators share art and recs; tag spikes internationally.",
+    "summary": "Boy's love/yaoi creators share art and recs.",
     "dateReason": "Numeric 801 → 'ya-o-i'.",
     "jpHashtag": "#801の日",
     "enHashtag": "#YaoiDay"
@@ -346,7 +346,7 @@
     "startDay": "04",
     "endDay": null,
     "rules": "Fixed annual November 4.",
-    "summary": "Illustrations celebrating shapely backsides trend all day :contentReference[oaicite:10]{index=10}",
+    "summary": "Illustrations celebrating shapely backsides trend all day.",
     "dateReason": "11 (ii) + 04 word-play for 'good butt' in Japanese.",
     "jpHashtag": "#いいお尻の日",
     "enHashtag": "#GoodAssDay"
@@ -357,7 +357,7 @@
     "startDay": "07",
     "endDay": null,
     "rules": "Fixed annual November 7.",
-    "summary": "Flat abs, soft bellies—artists showcase midriff art :contentReference[oaicite:11]{index=11}",
+    "summary": "Flat abs, soft bellies—artists showcase midriff art.",
     "dateReason": "11 (ii) + 07 pun “いいおなか” (nice stomach).",
     "jpHashtag": "#いいおなかの日",
     "enHashtag": "#NiceTummyDay"
@@ -379,7 +379,7 @@
     "startDay": "09",
     "endDay": null,
     "rules": "Fixed annual November 9.",
-    "summary": "Armpit-focused illustrations circulate under niche tag :contentReference[oaicite:12]{index=12}",
+    "summary": "Armpit-focused illustrations circulate under niche tag.",
     "dateReason": "11 (ii) + 09 pun 'いい脇' (good armpit).",
     "jpHashtag": "#いい脇の日",
     "enHashtag": "#GoodArmpitDay"

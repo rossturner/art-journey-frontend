@@ -3,6 +3,7 @@ import {Box, Group} from '@mantine/core';
 import Home from './pages/Home';
 import Project from './pages/Project';
 import Aspirations from './pages/Aspirations';
+import ArtTrendsCalendar from "./pages/ArtTrendsCalendar.jsx";
 
 function App() {
     return (
@@ -11,12 +12,14 @@ function App() {
                 <Group component="nav" p="md" spacing="lg">
                     <Link to="/">Gallery</Link>
                     <Link to="/aspirations">Aspirations</Link>
+                    <Link to="/art-trends-calendar">Art Trends Calendar</Link>
                 </Group>
             </Box>
 
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/aspirations" element={<Aspirations />} />
+                <Route path="/art-trends-calendar" element={<ArtTrendsCalendar />} />
                 <Route path="/:year/:month/:slug" element={<Project />} />
             </Routes>
         </>
