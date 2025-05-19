@@ -7,7 +7,7 @@
  */
 
 header('Content-Type: text/calendar; charset=utf-8');
-header('Content-Disposition: attachment; filename="events_recurring.ics"');
+header('Content-Disposition: attachment; filename="ziedritz_art_trends_calendar_events.ics"');
 
 $year   = isset($_GET['year']) ? max(1970, intval($_GET['year'])) : intval(date('Y'));
 $events = json_decode(file_get_contents(__DIR__ . '/events.json'), true);
