@@ -13,6 +13,7 @@ function App() {
                     <Link to="/">Gallery</Link>
                     <Link to="/aspirations">Aspirations</Link>
                     <Link to="/art-trends-calendar">Art Trends Calendar</Link>
+                    <Link to="https://miro.com/app/board/uXjVIw39cr0=/?share_link_id=202502614864" target={"_blank"}>My Development Plan</Link>
                 </Group>
             </Box>
 
