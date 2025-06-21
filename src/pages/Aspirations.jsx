@@ -104,9 +104,41 @@ function Aspirations() {
 
             <Divider my="xl" />
 
+            {/* Kuri Nyann */}
+            <section>
+                <Title order={2} mb="sm">Kuri Nyann</Title>
+                <Group spacing="xs" mb="sm">
+                    <SocialIconLink href="https://kurinyann.com/" />
+                    <SocialIconLink href="https://bsky.app/profile/did:plc:abwcwje7wcdejgxrc5vjxylr" />
+                    <SocialIconLink href="https://twitter.com/kuri_nyann" />
+                    <SocialIconLink href="http://kurinyann.etsy.com" />
+                </Group>
+
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
+                    <LinkedImage src="/static/aspirations/kurinyann-jane-doe.jpg" alt="Jane Doe by Kuri Nyann" />
+                    <LinkedImage src="/static/aspirations/kurinyann-mumei.jpg" alt="Mumei by Kuri Nyann" />
+                    <LinkedImage src="/static/aspirations/kurinyann-megu.jpg" alt="Megu by Kuri Nyann" />
+                    <LinkedImage src="/static/aspirations/kurinyann-fwbathsuit.png" alt="Firewatch Character by Kuri Nyann" />
+                </SimpleGrid>
+
+                <Text mb="sm">
+                    Kuri Nyann's work reminds me a lot of Rimuu's and I came across them because they're both affiliated
+                    with the same merch reseller, but even before starting my art journey I'd seen Kuri's Jane Done piece
+                    above because they made a really detailed colouring tutorial for it. Similarly, Kuri puts out a LOT
+                    of great little tutorials for free, plus little shorts of their process on Twitter/X which I love to
+                    see.
+                </Text>
+            </section>
+
+            <Divider my="xl" />
+
             {/* Kachoufuugetu4 */}
             <section>
-                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉 稔</Title>
+                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉 稔 / Minoru Mitsuba</Title>
                 <Group spacing="xs" mb="sm">
                     <SocialIconLink href="https://bsky.app/profile/kachoufuugetu4.bsky.social" />
                     <SocialIconLink href="https://x.com/kachoufuugetu4" />
