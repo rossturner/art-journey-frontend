@@ -76,7 +76,7 @@ function Aspirations() {
                 >
                     <LinkedImage src="/static/aspirations/saiivia-anby.jpg" alt="Anby Demara by Saiivia" />
                     <LinkedImage src="/static/aspirations/saiivia-jane.jpg" alt="Jane Doe by Saiivia" />
-                    <LinkedImage src="/static/aspirations/saiivia-driving-thunder.jpg" alt="Driving Thunder by Saiivia" />
+                    <LinkedImage src="/static/aspirations/saiivia-nicole-commission.jpg" alt="Nicole Demara by Saiivia" />
                 </SimpleGrid>
 
                 {/* second row (2 images max) */}
@@ -103,6 +103,42 @@ function Aspirations() {
             </section>
 
             <Divider my="xl" />
+
+            {/* Kachoufuugetu4 */}
+            <section>
+                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉 稔</Title>
+                <Group spacing="xs" mb="sm">
+                    <SocialIconLink href="https://bsky.app/profile/kachoufuugetu4.bsky.social" />
+                    <SocialIconLink href="https://x.com/kachoufuugetu4" />
+                    <SocialIconLink href="https://www.pixiv.net/en/users/1809221" />
+                </Group>
+
+                <SimpleGrid
+                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    spacing="md"
+                    mb="sm"
+                >
+                    <LinkedImage src="/static/aspirations/kachou1.jpg" />
+                    <LinkedImage src="/static/aspirations/kachou2.jpg" />
+                    <LinkedImage src="/static/aspirations/kachou3.jpg" />
+                    <LinkedImage src="/static/aspirations/kachou4.jpg" />
+                </SimpleGrid>
+
+                <Text>This is a very NSFW manga artist and most of his coloured work appears to be skeb commissions.
+                    Looking at these you're probably seeing a theme of obvious things (or pairs of obvious things)
+                    but I swear that's not why this artist is included!
+                    Honestly(!) I'm including his work for a similar reason to Saiivia's - I love the way he draws and colours eyes.
+                    Maybe it's just the wide-eyed happy expression he commonly uses along with the way they're coloured,
+                    but they really stand out to me enough to list him as an artist I want to include here.</Text>
+            </section>
+
+            <Divider my="xl" />
+
+            <Title order={1} mb="xs">Artists I admire for their love of a single character</Title>
+            <Text mb="xl">
+                There's something I really like about artists who go almost all-in on a single character,
+                they're able to really bring out the charm of the character.
+            </Text>
 
             {/* Resu */}
             <section>
@@ -155,36 +191,6 @@ function Aspirations() {
                     a visual novel and his work is perfect for that, though I believe most of it is commissions for
                     vtubers to use as stream backgrounds.
                 </Text>
-            </section>
-
-            <Divider my="xl" />
-
-            {/* Kachoufuugetu4 */}
-            <section>
-                <Title order={2} mb="sm">Kachoufuugetu4 / 三ッ葉 稔</Title>
-                <Group spacing="xs" mb="sm">
-                    <SocialIconLink href="https://bsky.app/profile/kachoufuugetu4.bsky.social" />
-                    <SocialIconLink href="https://x.com/kachoufuugetu4" />
-                    <SocialIconLink href="https://www.pixiv.net/en/users/1809221" />
-                </Group>
-
-                <SimpleGrid
-                    cols={{ base: 1, sm: 2, md: 3, lg: 4 }}
-                    spacing="md"
-                    mb="sm"
-                >
-                    <LinkedImage src="/static/aspirations/kachou1.jpg" />
-                    <LinkedImage src="/static/aspirations/kachou2.jpg" />
-                    <LinkedImage src="/static/aspirations/kachou3.jpg" />
-                    <LinkedImage src="/static/aspirations/kachou4.jpg" />
-                </SimpleGrid>
-
-                <Text>This is a very NSFW manga artist and most of his coloured work appears to be skeb commissions.
-                    Looking at these you're probably seeing a theme of obvious things (or pairs of obvious things)
-                    but I swear that's not why this artist is included!
-                    Honestly(!) I'm including his work for a similar reason to Saiivia's - I love the way he draws and colours eyes.
-                    Maybe it's just the wide-eyed happy expression he commonly uses along with the way they're coloured,
-                    but they really stand out to me enough to list him as an artist I want to include here.</Text>
             </section>
 
             <Divider my="xl" />
