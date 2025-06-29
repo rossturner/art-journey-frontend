@@ -24,7 +24,14 @@ function OrigamiSection() {
             <Text>
                 Origami's work is close to an ideal style for me. Zooming into the eys shows the level of
                 detail I want to incorporate into eyelashes. One that I think I'll try and do some "master studies"
-                of to see if I can learn what makes it work.
+                of to see if I can learn what makes it work.<br />
+                <br />
+                Origami has a fanbox that I've subscribed to but unfortunately this only unlocks NSFW images and a couple
+                of Live2D animations (which I'd like to get into eventually) but no process images or PSD files for me
+                to try and study. They post very little on social media other than these finished images and promote
+                their fanbox, but don't say much more than that. Though those are hallmarks of someone using AI, I don't
+                believe that is the case here. There's a WIP flat colour post of the Belle swimsuit image but nothing
+                beyond that unfortunately.
             </Text>
         </ArtistSection>
     );
