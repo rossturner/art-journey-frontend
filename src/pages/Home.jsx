@@ -15,6 +15,7 @@ export default function Home() {
                         <Group spacing="xs" mb="sm">
                             <SocialIconLink href="https://bsky.app/profile/ziedritz.art" />
                             <SocialIconLink href="https://x.com/ZiedritzArt" />
+                            <SocialIconLink href="https://www.instagram.com/ziedritz/" />
                         </Group>
                     </Stack>
                     <Stack spacing="sm">

@@ -1,7 +1,15 @@
 import {Anchor} from '@mantine/core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGlobe} from '@fortawesome/free-solid-svg-icons';
-import {faBluesky, faEtsy, faPatreon, faPixiv, faXTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import {
+    faBluesky,
+    faEtsy,
+    faInstagram,
+    faPatreon,
+    faPixiv,
+    faXTwitter,
+    faYoutube
+} from '@fortawesome/free-brands-svg-icons';
 
 function SocialIconLink({ href }) {
     const url = href.toLowerCase();
@@ -15,6 +23,8 @@ function SocialIconLink({ href }) {
         icon = faEtsy;
     } else if (url.includes('bsky')) {
         icon = faBluesky;
+    } else if (url.includes('instagram')) {
+        icon = faInstagram;
     } else if (url.includes('pixiv')) {
         icon = faPixiv;
     } else if (url.includes('x.com') || url.includes('twitter.com')) {
