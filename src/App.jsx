@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Project from './pages/Project';
 import Aspirations from './pages/Aspirations';
 import ArtTrendsCalendar from "./pages/ArtTrendsCalendar.jsx";
+import DailyTracker from "./pages/DailyTracker.jsx";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Link to="/">Gallery</Link>
                     <Link to="/aspirations">Aspirations</Link>
                     <Link to="/art-trends-calendar">Art Trends Calendar</Link>
+                    <Link to="/daily-tracker">Daily Tracker</Link>
                     <Link to="https://miro.com/app/board/uXjVIw39cr0=/?share_link_id=202502614864" target={"_blank"}>My Development Plan</Link>
                 </Group>
             </Box>
@@ -21,6 +23,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/aspirations" element={<Aspirations />} />
                 <Route path="/art-trends-calendar" element={<ArtTrendsCalendar />} />
+                <Route path="/daily-tracker" element={<DailyTracker />} />
                 <Route path="/:year/:month/:slug" element={<Project />} />
             </Routes>
         </>
