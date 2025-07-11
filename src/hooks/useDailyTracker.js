@@ -29,7 +29,7 @@ function parseCSV(csvText) {
     }
     values.push(current.trim());
     
-    // Expected structure: Date,Morning,Notes,Midday,Notes,Evening,Notes
+    // Expected structure: Date,Morning,Notes,Midday,Notes,Evening,Notes,Extra hours
     if (values.length >= 7 && values[0]) {
       const row = {
         Date: values[0],
@@ -38,7 +38,8 @@ function parseCSV(csvText) {
         Midday: values[3] || '',
         'Midday Notes': values[4] || '',
         Evening: values[5] || '',
-        'Evening Notes': values[6] || ''
+        'Evening Notes': values[6] || '',
+        'Extra Hours': values[7] || ''
       };
       data.push(row);
     }
@@ -69,7 +70,8 @@ function processTrackerData(csvData) {
       evening: {
         status: row['Evening'] || 'None',
         notes: row['Evening Notes'] || ''
-      }
+      },
+      extraHours: row['Extra Hours'] || ''
     };
   });
 
@@ -113,18 +115,23 @@ export default function useDailyTracker() {
     setError(null);
     
     try {
-      const response = await fetch(CSV_URL);
+      // Add cache-busting timestamp to URL
+      const cacheBustingUrl = `${CSV_URL}&t=${Date.now()}`;
+      const response = await fetch(cacheBustingUrl, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
       
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
       }
       
       const csvText = await response.text();
-      console.log('Raw CSV:', csvText);
       const csvData = parseCSV(csvText);
-      console.log('Parsed CSV:', csvData);
       const processedData = processTrackerData(csvData);
-      console.log('Processed data:', processedData);
       
       setData(processedData);
     } catch (err) {
