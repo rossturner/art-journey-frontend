@@ -67,9 +67,9 @@ function CompactDayEntry({ entry }) {
 export default function DailyTracker() {
   const { data, loading, error, refetch } = useDailyTracker();
 
-  // Calculate 40-day total hours (excluding the latest day)
-  const calculate40DayTotal = () => {
-    if (data.length === 0) return 0;
+  // Calculate 40-day total hours and breakdown (excluding the latest day)
+  const calculate40DayStats = () => {
+    if (data.length === 0) return { total: 0, passive: 0, practice: 0, active: 0 };
     
     // Flatten all entries from all months
     const allEntries = data.flatMap(monthGroup => monthGroup.entries);
@@ -78,17 +78,45 @@ export default function DailyTracker() {
     const past40Days = allEntries.slice(1, 41);
     
     let totalHours = 0;
+    let passiveHours = 0;
+    let practiceHours = 0;
+    let activeHours = 0;
+    
     past40Days.forEach(entry => {
       // Use the Total column from Google Sheets if available and numeric
       if (entry.totalHours && !isNaN(parseFloat(entry.totalHours))) {
         totalHours += parseFloat(entry.totalHours);
       }
+      
+      // Count hours by type from time slots
+      if (entry.morning.status === 'Passive') passiveHours += 1;
+      else if (entry.morning.status === 'Practice') practiceHours += 1;
+      else if (entry.morning.status === 'Active') activeHours += 1;
+      
+      if (entry.midday.status === 'Passive') passiveHours += 1;
+      else if (entry.midday.status === 'Practice') practiceHours += 1;
+      else if (entry.midday.status === 'Active') activeHours += 1;
+      
+      if (entry.evening.status === 'Passive') passiveHours += 1;
+      else if (entry.evening.status === 'Practice') practiceHours += 1;
+      else if (entry.evening.status === 'Active') activeHours += 1;
+      
+      // Add extra hours by type
+      if (entry.extraPassive && !isNaN(parseFloat(entry.extraPassive))) {
+        passiveHours += parseFloat(entry.extraPassive);
+      }
+      if (entry.extraPractice && !isNaN(parseFloat(entry.extraPractice))) {
+        practiceHours += parseFloat(entry.extraPractice);
+      }
+      if (entry.extraActive && !isNaN(parseFloat(entry.extraActive))) {
+        activeHours += parseFloat(entry.extraActive);
+      }
     });
     
-    return totalHours;
+    return { total: totalHours, passive: passiveHours, practice: practiceHours, active: activeHours };
   };
 
-  const total40DayHours = calculate40DayTotal();
+  const stats40Days = calculate40DayStats();
 
   if (loading) {
     return (
@@ -141,7 +169,21 @@ export default function DailyTracker() {
       }}>
         <Group justify="center" gap="md">
           <Text fw={700} size="lg" c="blue">
-            Past 40 Days: {total40DayHours} hours
+            Past 40 Days: {stats40Days.total} hours
+          </Text>
+        </Group>
+        <Group justify="center" gap="lg" mt="xs">
+          <Text size="sm" c="dimmed">
+            <Badge color="yellow" variant="filled" size="xs" mr="xs">Passive</Badge>
+            {stats40Days.passive} hours
+          </Text>
+          <Text size="sm" c="dimmed">
+            <Badge color="blue" variant="filled" size="xs" mr="xs">Practice</Badge>
+            {stats40Days.practice} hours
+          </Text>
+          <Text size="sm" c="dimmed">
+            <Badge color="green" variant="filled" size="xs" mr="xs">Active</Badge>
+            {stats40Days.active} hours
           </Text>
         </Group>
       </Box>
