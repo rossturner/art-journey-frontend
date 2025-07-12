@@ -10,6 +10,7 @@ function getStatusColor(status) {
     case 'Passive':
       return 'yellow';
     case 'None':
+      return 'red';
     default:
       return 'gray';
   }
