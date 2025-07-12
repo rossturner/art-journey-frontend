@@ -29,8 +29,8 @@ function parseCSV(csvText) {
     }
     values.push(current.trim());
     
-    // Expected structure: Date,Morning,Notes,Midday,Notes,Evening,Notes,Extra hours
-    if (values.length >= 7 && values[0]) {
+    // Expected structure: Date,Morning,Notes,Midday,Notes,Evening,Notes,Extra Passive,Extra Practice,Extra Active,Total
+    if (values.length >= 10 && values[0]) {
       const row = {
         Date: values[0],
         Morning: values[1] || '',
@@ -39,7 +39,10 @@ function parseCSV(csvText) {
         'Midday Notes': values[4] || '',
         Evening: values[5] || '',
         'Evening Notes': values[6] || '',
-        'Extra Hours': values[7] || ''
+        'Extra Passive': values[7] || '',
+        'Extra Practice': values[8] || '',
+        'Extra Active': values[9] || '',
+        'Total': values[10] || ''
       };
       data.push(row);
     }
@@ -71,7 +74,11 @@ function processTrackerData(csvData) {
         status: row['Evening'] || 'None',
         notes: row['Evening Notes'] || ''
       },
-      extraHours: row['Extra Hours'] || ''
+      extraPassive: row['Extra Passive'] || '',
+      extraPractice: row['Extra Practice'] || '',
+      extraActive: row['Extra Active'] || '',
+      totalHours: row['Total'] || '',
+      extraTotal: (parseFloat(row['Extra Passive'] || 0) + parseFloat(row['Extra Practice'] || 0) + parseFloat(row['Extra Active'] || 0)) || ''
     };
   });
 

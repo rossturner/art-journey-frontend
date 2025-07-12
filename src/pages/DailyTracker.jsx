@@ -17,16 +17,16 @@ function getStatusColor(status) {
 
 function CompactTimeSlot({ status, notes }) {
   return (
-    <Group gap="xs" style={{ minWidth: '250px', maxWidth: '250px' }}>
-      <Badge color={getStatusColor(status)} variant="light" size="xs" style={{ minWidth: '60px' }}>
+    <Group gap="xs" style={{ flex: 1, minWidth: '0' }}>
+      <Badge color={getStatusColor(status)} variant="light" size="xs" style={{ minWidth: '60px', flexShrink: 0 }}>
         {status}
       </Badge>
       {notes ? (
-        <Text size="xs" c="dimmed" truncate style={{ flex: 1 }} title={notes}>
+        <Text size="xs" c="dimmed" truncate style={{ flex: 1, minWidth: '0' }} title={notes}>
           {notes}
         </Text>
       ) : (
-        <Text size="xs" c="dimmed" fs="italic" style={{ flex: 1 }}>
+        <Text size="xs" c="dimmed" fs="italic" style={{ flex: 1, minWidth: '0' }}>
           -
         </Text>
       )}
@@ -35,7 +35,7 @@ function CompactTimeSlot({ status, notes }) {
 }
 
 function CompactDayEntry({ entry }) {
-  const extraHours = entry.extraHours && !isNaN(parseFloat(entry.extraHours)) ? parseFloat(entry.extraHours) : null;
+  const extraTotal = entry.extraTotal && !isNaN(parseFloat(entry.extraTotal)) ? parseFloat(entry.extraTotal) : null;
   
   return (
     <Box
@@ -47,16 +47,16 @@ function CompactDayEntry({ entry }) {
       }}
     >
       <Group justify="space-between" gap="md">
-        <Group gap="md" style={{ flex: 1 }}>
-          <Text fw={600} size="sm" style={{ minWidth: '80px' }}>
+        <Group gap="md" style={{ flex: 1, minWidth: '0' }}>
+          <Text fw={600} size="sm" style={{ minWidth: '80px', flexShrink: 0 }}>
             {entry.shortDate}
           </Text>
           <CompactTimeSlot status={entry.morning.status} notes={entry.morning.notes} />
           <CompactTimeSlot status={entry.midday.status} notes={entry.midday.notes} />
           <CompactTimeSlot status={entry.evening.status} notes={entry.evening.notes} />
         </Group>
-        <Text size="xs" c="dimmed" style={{ minWidth: '60px', textAlign: 'right' }}>
-          {extraHours !== null ? `${extraHours} hours` : ''}
+        <Text size="xs" c="dimmed" style={{ minWidth: '60px', textAlign: 'right', flexShrink: 0 }}>
+          {extraTotal !== null ? `${extraTotal} hours` : ''}
         </Text>
       </Group>
     </Box>
@@ -78,14 +78,9 @@ export default function DailyTracker() {
     
     let totalHours = 0;
     past40Days.forEach(entry => {
-      // Count 1 hour for each non-"None" time slot
-      if (entry.morning.status !== 'None') totalHours += 1;
-      if (entry.midday.status !== 'None') totalHours += 1;
-      if (entry.evening.status !== 'None') totalHours += 1;
-      
-      // Add extra hours if they exist and are numeric
-      if (entry.extraHours && !isNaN(parseFloat(entry.extraHours))) {
-        totalHours += parseFloat(entry.extraHours);
+      // Use the Total column from Google Sheets if available and numeric
+      if (entry.totalHours && !isNaN(parseFloat(entry.totalHours))) {
+        totalHours += parseFloat(entry.totalHours);
       }
     });
     
@@ -153,13 +148,13 @@ export default function DailyTracker() {
       {/* Header row */}
       <Group justify="space-between" gap="md" mb="sm" p="xs" 
              style={{ borderBottom: '2px solid var(--mantine-color-gray-4)', fontWeight: 600 }}>
-        <Group gap="md" style={{ flex: 1 }}>
-          <Text fw={700} size="sm" style={{ minWidth: '80px' }}>Date</Text>
-          <Text fw={700} size="sm" style={{ minWidth: '250px' }}>Morning</Text>
-          <Text fw={700} size="sm" style={{ minWidth: '250px' }}>Midday</Text>
-          <Text fw={700} size="sm" style={{ minWidth: '250px' }}>Evening</Text>
+        <Group gap="md" style={{ flex: 1, minWidth: '0' }}>
+          <Text fw={700} size="sm" style={{ minWidth: '80px', flexShrink: 0 }}>Date</Text>
+          <Text fw={700} size="sm" style={{ flex: 1 }}>Morning</Text>
+          <Text fw={700} size="sm" style={{ flex: 1 }}>Midday</Text>
+          <Text fw={700} size="sm" style={{ flex: 1 }}>Evening</Text>
         </Group>
-        <Text fw={700} size="sm" style={{ minWidth: '60px', textAlign: 'right' }}>Extra</Text>
+        <Text fw={700} size="sm" style={{ minWidth: '60px', textAlign: 'right', flexShrink: 0 }}>Extra</Text>
       </Group>
 
       {data.length === 0 ? (
