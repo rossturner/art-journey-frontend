@@ -171,7 +171,7 @@
     "endDay": "05",
     "rules": "Runs every year for the whole Golden Week holiday (29 Apr – 5 May).",
     "summary": "Shiny gold-swimsuit fan-art parallels Japan’s “Golden Week” holiday.",
-    "dateReason": "\"Golden\" week inspires the gold-bikini gimmick during the long spring break.",
+    "dateReason": \"Golden\" week inspires the gold-bikini gimmick during the long spring break.",
     "jpHashtag": "#ゴールデンビキニ",
     "enHashtag": "#GoldenBikiniWeek"
   },
@@ -204,7 +204,7 @@
     "endDay": null,
     "rules": "Fixed annual May 10.",
     "summary": "Cosplayers and illustrators serve maid-outfit shots all day.",
-    "dateReason": "'May-do' sounds like \"maid\" in Japanese pronunciation.",
+    "dateReason": '\"May-do\" sounds like \"maid\" in Japanese pronunciation.',
     "jpHashtag": "#メイドの日",
     "enHashtag": "#MaidDay"
   },
@@ -284,6 +284,17 @@
     "dateReason": "Numeric 801 → 'ya-o-i'.",
     "jpHashtag": "#801の日",
     "enHashtag": "#YaoiDay"
+  },
+  {
+    "title": "Bunny Day",
+    "month": "08",
+    "startDay": "21",
+    "endDay": null,
+    "rules": "Fixed annual August 21.",
+    "summary": "Artists share bunny-suit (bunny girl) illustrations and themed fan-art across JP platforms.",
+    "dateReason": "A calendar day celebrated online for bunny-themed character art.",
+    "jpHashtag": "#バニーの日",
+    "enHashtag": "#BunnyDay"
   },
   {
     "title": "Miku Birthday",
