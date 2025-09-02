@@ -28,10 +28,7 @@ function OrigamiSection() {
                 <br />
                 Origami has a fanbox that I've subscribed to but unfortunately this only unlocks NSFW images and a couple
                 of Live2D animations (which I'd like to get into eventually) but no process images or PSD files for me
-                to try and study. They post very little on social media other than these finished images and promote
-                their fanbox, but don't say much more than that. Though those are hallmarks of someone using AI, I don't
-                believe that is the case here. There's a WIP flat colour post of the Belle swimsuit image but nothing
-                beyond that unfortunately.
+                to try and study. Although it's a less detailed style than other artists, I really like it.
             </Text>
         </ArtistSection>
     );

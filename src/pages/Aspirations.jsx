@@ -4,9 +4,9 @@ import RimuuSection from '../components/artists/RimuuSection.jsx';
 import SaiiviaSection from '../components/artists/SaiiviaSection.jsx';
 import KuriNyannSection from '../components/artists/KuriNyannSection.jsx';
 import KachoufuugetuSection from '../components/artists/KachoufuugetuSection.jsx';
-import ResuSection from '../components/artists/ResuSection.jsx';
-import FeintSection from '../components/artists/FeintSection.jsx';
 import OrigamiSection from '../components/artists/OrigamiSection.jsx';
+import GaitouuSection from '../components/artists/GaitouuSection.jsx';
+import HongSection from '../components/artists/HongSection.jsx';
 
 function Aspirations() {
     return (
@@ -24,7 +24,11 @@ function Aspirations() {
 
             <Divider my="xl" />
 
-            <OrigamiSection />
+            <GaitouuSection />
+
+            <Divider my="xl" />
+
+            <HongSection />
 
             <Divider my="xl" />
 
@@ -36,17 +40,7 @@ function Aspirations() {
 
             <Divider my="xl" />
 
-            <Title order={1} mb="xs">Artists I admire for their love of a single character</Title>
-            <Text mb="xl">
-                There's something I really like about artists who go almost all-in on a single character,
-                they're able to really bring out the charm of the character.
-            </Text>
-
-            <ResuSection />
-
-            <Divider my="xl" />
-
-            <FeintSection />
+            <OrigamiSection />
 
             <Divider my="xl" />
 
