@@ -5,7 +5,7 @@ import SaiiviaSection from '../components/artists/SaiiviaSection.jsx';
 import KuriNyannSection from '../components/artists/KuriNyannSection.jsx';
 import KachoufuugetuSection from '../components/artists/KachoufuugetuSection.jsx';
 import OrigamiSection from '../components/artists/OrigamiSection.jsx';
-import GaitouuSection from '../components/artists/GaitouuSection.jsx';
+import NekojiraSection from '../components/artists/NekojiraSection.jsx';
 import HongSection from '../components/artists/HongSection.jsx';
 
 function Aspirations() {
@@ -24,7 +24,7 @@ function Aspirations() {
 
             <Divider my="xl" />
 
-            <GaitouuSection />
+            <NekojiraSection />
 
             <Divider my="xl" />
 
