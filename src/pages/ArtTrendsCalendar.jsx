@@ -26,7 +26,7 @@ export default function ArtTrendsCalendar() {
 
             <Text mb="lg">
                 Want reminders? Download the&nbsp;
-                <Text component="a" href="/static/events.php" td="underline" inherit>
+                <Text component="a" href="/static/events.ics" td="underline" inherit>
                     iCalendar (.ics)
                 </Text>{' '}
                 and import it to something like Google Calendar.<br />
