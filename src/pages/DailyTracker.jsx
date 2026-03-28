@@ -261,7 +261,7 @@ export default function DailyTracker() {
       ) : (
         <Stack gap="lg">
           {data.map((monthGroup) => {
-            const isOld = monthGroup.monthKey < cutoffKey;
+            const isOld = monthGroup.monthKey <= cutoffKey;
 
             if (isOld) {
               const monthStats = calculateStats(monthGroup.entries);
