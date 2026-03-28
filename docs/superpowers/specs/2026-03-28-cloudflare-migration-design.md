@@ -23,8 +23,8 @@ Migrate to Cloudflare Pages + R2 for $0/month hosting within free tier limits.
 
 ### PHP elimination
 
-- `workspace-index.php` is replaced by a local Node script that scans `/mnt/d/artwork/workspace/`, produces `workspace-index.json`, and uploads it to R2 alongside the artwork files. The PHP file is deleted from the project.
-- `events.php` is replaced by a local script that generates a static `events.ics` from `events.json`. The .ics file is included in the Pages build.
+- `workspace-index.php` is replaced by a local Node script that scans `/mnt/d/artwork/workspace/`, produces `workspace-index.json`, and uploads it to R2 alongside the artwork files. The PHP file is deleted from the workspace.
+- `events.php` is replaced by a local script that generates a static `events.ics` from `events.json`. The .ics file is included in the Pages build. Both `workspace-index.php` and `public/static/events.php` are deleted from the project.
 
 ## R2 Bucket Structure
 
@@ -46,7 +46,7 @@ r2:art-journey/
 └── ...
 ```
 
-CORS configured on the bucket to allow requests from `https://ziedritz.art`.
+CORS configured on the bucket to allow `GET` requests from `https://ziedritz.art` (and `http://localhost:*` for local development). R2 will correctly decode URL-encoded paths (e.g., `2024%2009/` resolves to the `2024 09/` key).
 
 ## Local Sync Script
 
@@ -57,7 +57,8 @@ A Node script at `scripts/sync.js`, invoked via `npm run sync`, that performs th
 Scans `/mnt/d/artwork/workspace/` using the same logic as the current PHP:
 - Reads `YYYY MM/` directories for year/month grouping
 - Within each month, reads project subdirectories
-- Categorizes files by pattern: `final*`, `wip\d+*`, `reference\d+*`, `.clip`, `timelapse*.mp4`, `notes.txt`
+- Categorizes files by pattern: `final*`, `wip\d+*`, `reference\d+*`, `.clip`, `timelapse*.mp4`
+- Reads `notes.txt` content and embeds it as a `notes` string field in the project object (the frontend renders this inline, not as a file URL)
 - Extracts day from project directory name
 - Generates slugs from titles
 - Picks thumbnail (first final image, or last WIP as fallback)
@@ -70,14 +71,17 @@ Scans `/mnt/d/artwork/workspace/` using the same logic as the current PHP:
 
 - Reads `public/static/events.json`
 - Filters to "Fixed" annual events
-- Generates VCALENDAR format with FREQ=YEARLY recurrence
+- Generates VCALENDAR format with FREQ=YEARLY recurrence, using the current year for DTSTART
+- Uses deterministic UIDs (hash of event title + date) so re-importing updates rather than duplicates entries
 - Escapes special characters per RFC 5545
 - Writes to `public/static/events.ics`
+- Note: this modifies the Pages source tree, so a git commit + push is needed if events changed
 
 ### 3. Sync to R2
 
 - Shells out to `rclone sync /mnt/d/artwork/workspace/ r2:art-journey/`
 - Pushes artwork files and `workspace-index.json` to R2
+- Note: `rclone sync` is destructive (deletes remote files not present locally). Consider `--dry-run` for verification before first sync.
 
 ## Frontend Changes
 
@@ -100,6 +104,11 @@ Scans `/mnt/d/artwork/workspace/` using the same logic as the current PHP:
 ### Shared config
 - R2 base URL (`https://media.ziedritz.art/`) stored as a single constant or environment variable
 
+### No changes needed
+- **Daily tracker**: Fetches from Google Sheets, unaffected by migration
+- **Aspirations page**: Uses local static images in `public/static/aspirations/`, served by Pages
+- **SPA routing**: Uses HashRouter, works automatically on Cloudflare Pages with no `_redirects` file needed
+
 ## Cloudflare Setup
 
 ### DNS
@@ -111,7 +120,7 @@ Scans `/mnt/d/artwork/workspace/` using the same logic as the current PHP:
 - Create bucket `art-journey`
 - Enable public access
 - Attach custom domain `media.ziedritz.art`
-- Configure CORS to allow `https://ziedritz.art`
+- Configure CORS: allow `GET` from `https://ziedritz.art` and `http://localhost:*`
 
 ### Pages Project
 - Connect GitHub repo to Cloudflare Pages
@@ -129,7 +138,7 @@ Two independent operations:
 1. **Code changes**: Push to `master` → Cloudflare Pages auto-deploys the SPA
 2. **Artwork changes**: Run `npm run sync` → generates index JSON, generates events.ics, syncs files to R2
 
-These are decoupled — artwork can be updated without redeploying the SPA and vice versa.
+These are decoupled — artwork can be updated without redeploying the SPA and vice versa. The one exception is if `events.json` changes: since `npm run sync` generates `events.ics` into the Pages source tree, a git commit + push is needed to deploy the updated calendar file.
 
 ## Cost
 
