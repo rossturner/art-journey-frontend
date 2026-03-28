@@ -9,6 +9,7 @@ const STATIC_DIR = join(__dirname, '..', 'public', 'static');
 function generateEventsIcs() {
     const events = JSON.parse(readFileSync(join(STATIC_DIR, 'events.json'), 'utf8'));
     const year = new Date().getFullYear();
+    const dtstamp = `${year}0101T000000Z`;
 
     const esc = (s) => s.replace(/[,;]/g, (m) => '\\' + m).replace(/\n/g, '\\n').replace(/\r/g, '');
 
@@ -41,7 +42,7 @@ function generateEventsIcs() {
         lines.push(
             'BEGIN:VEVENT',
             `UID:${uid}@ziedritz.art`,
-            `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}`,
+            `DTSTAMP:${dtstamp}`,
             `DTSTART;VALUE=DATE:${dtstart}`,
             `DTEND;VALUE=DATE:${dtend}`,
             `RRULE:${rrule}`,
