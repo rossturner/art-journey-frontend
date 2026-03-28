@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react';
 import {format} from 'date-fns';
+import {R2_BASE_URL} from '../config.js';
 
 export default function useWorkspace() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('/workspace/workspace-index.php')
+        fetch(`${R2_BASE_URL}/workspace-index.json`)
             .then((r) => r.json())
             .then((raw) => {
                 const blocks = raw
