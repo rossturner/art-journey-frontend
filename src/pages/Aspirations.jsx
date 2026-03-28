@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import RimuuSection from '../components/artists/RimuuSection.jsx';
 import SaiiviaSection from '../components/artists/SaiiviaSection.jsx';
 import KachoufuugetuSection from '../components/artists/KachoufuugetuSection.jsx';
-import OrigamiSection from '../components/artists/OrigamiSection.jsx';
+import FeintSection from '../components/artists/FeintSection.jsx';
 import NekojiraSection from '../components/artists/NekojiraSection.jsx';
 
 function Aspirations() {
@@ -30,7 +30,7 @@ function Aspirations() {
 
             <Divider my="xl" />
 
-            <OrigamiSection />
+            <FeintSection />
 
             <Divider my="xl" />
 
