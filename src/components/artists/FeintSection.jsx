@@ -22,8 +22,8 @@ function FeintSection() {
                 <LinkedImage src="/static/aspirations/feint4.jpg" />
             </SimpleGrid>
 
-            <Text>Similarly to Resu mostly focusing on one character, Feint takes that even further as his profile
-            text informs you with "99.1% Stelle" (Stelle being the grey-haired, yellow-eyed female player
+            <Text>Feint's profile
+            text informs you that he's "99.1% Stelle" (Stelle being the grey-haired, yellow-eyed female player
             avatar/protaganist from Honkai: Star Rail).<br />
             <br />
             I struggle to define what it is that draws me to Feint's work, I think it might actually be the more
