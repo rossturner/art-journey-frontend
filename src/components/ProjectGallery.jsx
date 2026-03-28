@@ -14,6 +14,7 @@ import {
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import useWorkspace from '../hooks/useWorkspace';
+import {R2_BASE_URL} from '../config.js';
 
 export default function ProjectGallery() {
     const blocks = useWorkspace();
@@ -78,7 +79,7 @@ export default function ProjectGallery() {
                                     >
                                         <CardSection>
                                             <Image
-                                                src={`/workspace/${p.thumbnail}`}
+                                                src={`${R2_BASE_URL}/${p.thumbnail}`}
                                                 alt={p.title}
                                             />
                                         </CardSection>
