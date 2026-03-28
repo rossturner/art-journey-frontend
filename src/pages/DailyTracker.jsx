@@ -188,7 +188,10 @@ export default function DailyTracker() {
 
   const allEntries = data.flatMap(monthGroup => monthGroup.entries);
   const stats40Days = calculateStats(allEntries.slice(1, 41));
-  const statsYear = calculateStats(allEntries.slice(1, 366));
+  const oneYearAgo = new Date();
+  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+  const yearEntries = allEntries.slice(1).filter(entry => entry.date >= oneYearAgo);
+  const statsYear = calculateStats(yearEntries);
 
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
