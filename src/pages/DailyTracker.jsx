@@ -1,4 +1,6 @@
-import { Container, Title, Text, Group, Stack, Center, Loader, Button, Badge, Box, SimpleGrid } from '@mantine/core';
+import { Container, Title, Text, Group, Stack, Center, Loader, Button, Badge, Box, SimpleGrid, UnstyledButton } from '@mantine/core';
+import { useState } from 'react';
+import { format } from 'date-fns';
 import useDailyTracker from '../hooks/useDailyTracker';
 
 function getStatusColor(status) {
@@ -131,12 +133,66 @@ function SummaryBanner({ label, stats }) {
   );
 }
 
+function CollapsedMonth({ monthGroup, stats, expanded, onToggle }) {
+  return (
+    <div>
+      <UnstyledButton
+        onClick={onToggle}
+        w="100%"
+        p="sm"
+        mb={expanded ? 'sm' : 0}
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.03)',
+          border: '1px solid rgba(255, 255, 255, 0.06)',
+          borderRadius: '6px'
+        }}
+      >
+        <Group justify="space-between">
+          <Group gap="md">
+            <Text fw={600} size="sm" c="blue">{monthGroup.monthLabel}</Text>
+            <Text size="sm" c="dimmed">
+              {stats.total} hours
+              ({stats.passive} passive, {stats.practice} practice, {stats.active} active)
+            </Text>
+          </Group>
+          <Text size="sm" c="dimmed">{expanded ? '▼' : '▶'}</Text>
+        </Group>
+      </UnstyledButton>
+      {expanded && (
+        <Box style={{ border: '1px solid rgba(255, 255, 255, 0.06)', borderRadius: '4px' }}>
+          {monthGroup.entries.map((entry) => (
+            <CompactDayEntry key={entry.dateString} entry={entry} />
+          ))}
+        </Box>
+      )}
+    </div>
+  );
+}
+
 export default function DailyTracker() {
   const { data, loading, error, refetch } = useDailyTracker();
+
+  const [expandedMonths, setExpandedMonths] = useState(new Set());
+
+  const toggleMonth = (monthKey) => {
+    setExpandedMonths(prev => {
+      const next = new Set(prev);
+      if (next.has(monthKey)) {
+        next.delete(monthKey);
+      } else {
+        next.add(monthKey);
+      }
+      return next;
+    });
+  };
 
   const allEntries = data.flatMap(monthGroup => monthGroup.entries);
   const stats40Days = calculateStats(allEntries.slice(1, 41));
   const statsYear = calculateStats(allEntries.slice(1, 366));
+
+  const sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  const cutoffKey = format(sixMonthsAgo, 'yyyy-MM');
 
   if (loading) {
     return (
@@ -204,16 +260,33 @@ export default function DailyTracker() {
         </Center>
       ) : (
         <Stack gap="lg">
-          {data.map((monthGroup) => (
-            <div key={monthGroup.monthKey}>
-              <Title order={4} mb="sm" c="blue">{monthGroup.monthLabel}</Title>
-              <Box style={{ border: '1px solid var(--mantine-color-gray-3)', borderRadius: '4px' }}>
-                {monthGroup.entries.map((entry) => (
-                  <CompactDayEntry key={entry.dateString} entry={entry} />
-                ))}
-              </Box>
-            </div>
-          ))}
+          {data.map((monthGroup) => {
+            const isOld = monthGroup.monthKey < cutoffKey;
+
+            if (isOld) {
+              const monthStats = calculateStats(monthGroup.entries);
+              return (
+                <CollapsedMonth
+                  key={monthGroup.monthKey}
+                  monthGroup={monthGroup}
+                  stats={monthStats}
+                  expanded={expandedMonths.has(monthGroup.monthKey)}
+                  onToggle={() => toggleMonth(monthGroup.monthKey)}
+                />
+              );
+            }
+
+            return (
+              <div key={monthGroup.monthKey}>
+                <Title order={4} mb="sm" c="blue">{monthGroup.monthLabel}</Title>
+                <Box style={{ border: '1px solid rgba(255, 255, 255, 0.06)', borderRadius: '4px' }}>
+                  {monthGroup.entries.map((entry) => (
+                    <CompactDayEntry key={entry.dateString} entry={entry} />
+                  ))}
+                </Box>
+              </div>
+            );
+          })}
         </Stack>
       )}
     </Container>
