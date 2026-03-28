@@ -13,7 +13,8 @@ generateEventsIcs();
 
 console.log('\n=== Step 3: Sync to R2 ===');
 const rcloneExe = process.env.RCLONE || 'rclone.exe';
-const rcloneCmd = `${rcloneExe} sync "${WORKSPACE_ROOT}" ${R2_BUCKET} --progress`;
+const winPath = execSync(`wslpath -w "${WORKSPACE_ROOT}"`, { encoding: 'utf8' }).trim();
+const rcloneCmd = `${rcloneExe} sync "${winPath}" ${R2_BUCKET} --progress`;
 console.log(`Running: ${rcloneCmd}`);
 execSync(rcloneCmd, { stdio: 'inherit' });
 
