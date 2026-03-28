@@ -28,6 +28,9 @@ function NekojiraSection() {
                 He is a little nervous in his course but ends up explaining his thought process and core principles very
                 well rather than just exactly what he is doing to achieve these results, and I think I can learn a lot from that.<br />
                 <br />
+                I think and hope that the reason I didn't initially love Nekojira's work is that my vision "skill" for art wasn't
+                as developed as it became later.<br />
+                <br />
                 Also he designed Raora Panthera of Hololive English!
             </Text>
         </ArtistSection>
