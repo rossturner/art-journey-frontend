@@ -45,7 +45,7 @@ function CompactDayEntry({ entry }) {
       key={entry.dateString}
       p="xs"
       style={{
-        borderBottom: '1px solid var(--mantine-color-gray-3)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
         '&:hover': { backgroundColor: 'var(--mantine-color-gray-0)' }
       }}
     >
@@ -244,7 +244,7 @@ export default function DailyTracker() {
 
       {/* Header row */}
       <Group justify="space-between" gap="md" mb="sm" p="xs"
-             style={{ borderBottom: '2px solid var(--mantine-color-gray-4)', fontWeight: 600 }}>
+             style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.12)', fontWeight: 600 }}>
         <Group gap="md" style={{ flex: 1, minWidth: '0' }}>
           <Text fw={700} size="sm" style={{ minWidth: '80px', flexShrink: 0 }}>Date</Text>
           <Text fw={700} size="sm" style={{ flex: 1 }}>Morning</Text>
