@@ -14,6 +14,7 @@ import {
 } from '@mantine/core';
 import {Link, useParams} from 'react-router-dom';
 import useWorkspace from '../hooks/useWorkspace';
+import {R2_BASE_URL} from '../config.js';
 
 export default function Project() {
     const { year, month, slug } = useParams();
@@ -47,11 +48,11 @@ export default function Project() {
 
                 {/* main / final image */}
                 <Anchor
-                    href={`/workspace/${hero}`}
+                    href={`${R2_BASE_URL}/${hero}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Image src={`/workspace/${hero}`} alt={project.title} radius="md" />
+                    <Image src={`${R2_BASE_URL}/${hero}`} alt={project.title} radius="md" />
                 </Anchor>
 
                 {/* notes */}
@@ -73,11 +74,11 @@ export default function Project() {
                             {otherFinals.map((f) => (
                                 <Anchor
                                     key={f}
-                                    href={`/workspace/${f}`}
+                                    href={`${R2_BASE_URL}/${f}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image src={`/workspace/${f}`} alt={project.title} />
+                                    <Image src={`${R2_BASE_URL}/${f}`} alt={project.title} />
                                 </Anchor>
                             ))}
                         </SimpleGrid>
@@ -92,11 +93,11 @@ export default function Project() {
                             {project.wip.map((w) => (
                                 <Anchor
                                     key={w}
-                                    href={`/workspace/${w}`}
+                                    href={`${R2_BASE_URL}/${w}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image src={`/workspace/${w}`} alt={project.title} />
+                                    <Image src={`${R2_BASE_URL}/${w}`} alt={project.title} />
                                 </Anchor>
                             ))}
                         </SimpleGrid>
@@ -110,7 +111,7 @@ export default function Project() {
                         <Center>
                             <video
                                 controls
-                                src={`/workspace/${project.timelapse}`}
+                                src={`${R2_BASE_URL}/${project.timelapse}`}
                                 style={{ width: '100%', maxWidth: 640 }}
                             />
                         </Center>
@@ -125,11 +126,11 @@ export default function Project() {
                             {project.reference.map((r) => (
                                 <Anchor
                                     key={r}
-                                    href={`/workspace/${r}`}
+                                    href={`${R2_BASE_URL}/${r}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image src={`/workspace/${r}`} alt={project.title} />
+                                    <Image src={`${R2_BASE_URL}/${r}`} alt={project.title} />
                                 </Anchor>
                             ))}
                         </SimpleGrid>
@@ -142,7 +143,7 @@ export default function Project() {
                         <Divider />
                         <Group>
                             {project.clip.map((c) => (
-                                <Anchor key={c} href={`/workspace/${c}`} download>
+                                <Anchor key={c} href={`${R2_BASE_URL}/${c}`} download>
                                     Download .clip
                                 </Anchor>
                             ))}
