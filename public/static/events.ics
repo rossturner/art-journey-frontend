@@ -201,13 +201,22 @@ SUMMARY:Yaoi Day
 DESCRIPTION:Boy's love/yaoi creators share art and recs. #801の日 #YaoiDay
 END:VEVENT
 BEGIN:VEVENT
-UID:9df8494a34a82d05@ziedritz.art
+UID:9cb6eee56206d7fb@ziedritz.art
 DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260821
-DTEND;VALUE=DATE:20260822
-RRULE:FREQ=YEARLY;BYMONTH=8;BYMONTHDAY=21
+DTSTART;VALUE=DATE:20260802
+DTEND;VALUE=DATE:20260803
+RRULE:FREQ=YEARLY;BYMONTH=8;BYMONTHDAY=2
 SUMMARY:Bunny Day
 DESCRIPTION:Artists share bunny-suit (bunny girl) illustrations and themed fan-art across JP platforms. #バニーの日 #BunnyDay
+END:VEVENT
+BEGIN:VEVENT
+UID:efe27bf0e1ef7aa2@ziedritz.art
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260802
+DTEND;VALUE=DATE:20260803
+RRULE:FREQ=YEARLY;BYMONTH=8;BYMONTHDAY=2
+SUMMARY:Panties Day
+DESCRIPTION:Panty-themed fan-art trends\; often combined with the prior day's Oppai Day as 'Oppantsu Day'. #パンツの日 #PantiesDay
 END:VEVENT
 BEGIN:VEVENT
 UID:84f31ad13e8d1bee@ziedritz.art

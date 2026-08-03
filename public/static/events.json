@@ -288,13 +288,24 @@
   {
     "title": "Bunny Day",
     "month": "08",
-    "startDay": "21",
+    "startDay": "02",
     "endDay": null,
-    "rules": "Fixed annual August 21.",
+    "rules": "Fixed annual August 2.",
     "summary": "Artists share bunny-suit (bunny girl) illustrations and themed fan-art across JP platforms.",
-    "dateReason": "A calendar day celebrated online for bunny-themed character art.",
+    "dateReason": "8 (ba) 2 (ni) reads 'bani' (bunny) in Japanese goro-awase.",
     "jpHashtag": "#バニーの日",
     "enHashtag": "#BunnyDay"
+  },
+  {
+    "title": "Panties Day",
+    "month": "08",
+    "startDay": "02",
+    "endDay": null,
+    "rules": "Fixed annual August 2.",
+    "summary": "Panty-themed fan-art trends; often combined with the prior day's Oppai Day as 'Oppantsu Day'.",
+    "dateReason": "8 (pan) 2 (tsu) reads 'pantsu' (panties) in Japanese goro-awase.",
+    "jpHashtag": "#パンツの日",
+    "enHashtag": "#PantiesDay"
   },
   {
     "title": "Miku Birthday",
