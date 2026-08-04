@@ -22,10 +22,10 @@ function generateWorkspaceIndex() {
 
             const files = readdirSync(projDir).filter(f => !f.startsWith('.'));
 
-            const finals = files.filter(f => /final.*\.(png|jpe?g|gif)$/i.test(f));
+            const finals = files.filter(f => /final.*\.(png|jpe?g|gif|webp)$/i.test(f));
 
             const wips = files
-                .filter(f => /wip(\d+).*?\.(png|jpe?g|gif)$/i.test(f))
+                .filter(f => /wip(\d+).*?\.(png|jpe?g|gif|webp)$/i.test(f))
                 .sort((a, b) => {
                     const na = parseInt(a.match(/wip(\d+)/i)[1], 10);
                     const nb = parseInt(b.match(/wip(\d+)/i)[1], 10);
@@ -33,7 +33,7 @@ function generateWorkspaceIndex() {
                 });
 
             const refs = files
-                .filter(f => /reference(\d+).*?\.(png|jpe?g|gif)$/i.test(f))
+                .filter(f => /reference(\d+).*?\.(png|jpe?g|gif|webp)$/i.test(f))
                 .sort((a, b) => {
                     const na = parseInt(a.match(/reference(\d+)/i)[1], 10);
                     const nb = parseInt(b.match(/reference(\d+)/i)[1], 10);
